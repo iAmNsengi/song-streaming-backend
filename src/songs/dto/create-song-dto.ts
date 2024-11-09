@@ -1,4 +1,5 @@
 import {
+    ArrayNotEmpty,
   IsArray,
   IsDate,
   IsDateString,
@@ -12,9 +13,8 @@ export class CreateSongDTO {
   @IsString()
   readonly title: string;
 
-  @IsNotEmpty()
-  @IsArray()
-  @IsString()
+  @ArrayNotEmpty()
+  @IsString({each: true})
   readonly artists: string[];
 
   @IsNotEmpty()
